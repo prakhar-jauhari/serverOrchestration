@@ -1,4 +1,4 @@
-package serverOrchestration;
+package com.prakhar.serverOrchestration;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -15,8 +15,7 @@ import org.jgrapht.graph.SimpleDirectedGraph;
 import org.jgrapht.traverse.BreadthFirstIterator;
 import org.jgrapht.traverse.TopologicalOrderIterator;
 
-public class clusterManager implements Orchestrator
-{
+public class clusterManager implements Orchestrator{
 
 	private static final Logger LOG = Logger.getLogger(clusterManager.class.getName());
 	private Map<String, serverInstance> servers = new HashMap<String, serverInstance>();
@@ -32,20 +31,6 @@ public class clusterManager implements Orchestrator
 			throw new RuntimeException("Server with name: " + server.getName() + " already exists \n");
 		}
 		return buildGraph();
-	}
-
-	@Override
-	public boolean removeServer(serverInstance server) 
-	{
-		LOG.info("Removing server from cluster : " + server.getName());
-		if (servers.remove(server.getName()) != null)
-		{
-			throw new RuntimeException("Server with name: " + server.getName() + " does not exist\n");
-		}
-		boolean res = buildGraph();
-		if (!res)
-			servers.put(server.getName(), server);
-		return res;
 	}
 
 	@Override

@@ -1,11 +1,9 @@
-package serverOrchestration;
+package com.prakhar.serverOrchestration;
 
 public interface Orchestrator 
 {
 	
 	public boolean addServer(serverInstance server);
-	
-	public boolean removeServer(serverInstance server);
 	 
 	public boolean prepare();
  
