@@ -3,7 +3,7 @@ package com.prakhar.serverOrchestration;
 import java.util.HashSet;
 import java.util.Set;
 
-public class deployMyCluster {
+public class testClusterDeployment {
 
 	public static void main(String[] args) {
 		
